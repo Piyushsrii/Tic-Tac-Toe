@@ -12,9 +12,15 @@ class TicTacToe {
 	//Method to initialise board
 	public static void initBoard() {
 		board = new ArrayList<ArrayList<String> >();
-		board.add(new ArrayList<String>(Arrays.asList("-","-","-")));
-		board.add(new ArrayList<String>(Arrays.asList("-","-","-")));
-		board.add(new ArrayList<String>(Arrays.asList("-","-","-")));
+		board.add(new ArrayList<String>(Arrays.asList("1","2","3")));
+		board.add(new ArrayList<String>(Arrays.asList("4","5","6")));
+		board.add(new ArrayList<String>(Arrays.asList("7","8","9")));
+	}
+
+	public static void displayBoard() {
+		System.out.println(board.get(0).get(0)+ "|" +board.get(0).get(1)+ "|" +board.get(0).get(2));
+		System.out.println(board.get(1).get(0)+ "|" +board.get(1).get(1)+ "|" +board.get(1).get(2));
+		System.out.println(board.get(2).get(0)+ "|" +board.get(2).get(1)+ "|" +board.get(2).get(2));
 	}
 
 	//Method to choose who goes first
@@ -48,7 +54,7 @@ class TicTacToe {
 		int userSymbolChoice;
 		if (playerFlag == flag) {
 			Scanner input = new Scanner(System.in);
-			System.out.print("Select your choice (1: X, 2: O): ");
+			System.out.print("Select your symbol choice (1: X, 2: O): ");
 			userSymbolChoice = input.nextInt();
 			secChooseSymbol(userSymbolChoice);
 		}
@@ -58,16 +64,23 @@ class TicTacToe {
 		}
 	}
 
-	//Main
-	public static void main(String[] args) {
+	//Method perform first run of game
+	public static void firstRun() {
 		//take user input
 		Scanner input = new Scanner(System.in);
-		System.out.print("Select your choice (1:Head, 2:Tail): ");
+		System.out.print("Select your toss choice (1:Head, 2:Tail): ");
 		int userChoice = input.nextInt();
 		chooseFirst(userChoice);
+		System.out.println("Player symbol: "+playerSymbol+ "\nCPU Symbol : "+cpuSymbol+"\n");
 		initBoard();
-		System.out.println(board);
+		System.out.println("Fresh Board:");
+		displayBoard();
+		System.out.println("----------------------------------------");
+	}
 
-		System.out.println("Player symbol: "+playerSymbol+ " CPU Symbol : "+cpuSymbol);
+	//Main
+	public static void main(String[] args) {
+		//initial run to set all variables
+		firstRun();
 	}
 }
