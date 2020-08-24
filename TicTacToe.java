@@ -196,8 +196,10 @@ class TicTacToe {
 	public static void main(String[] args) {
 		//initial run to set all variables
 		firstRun();
-		manageTurn();
-		checkGameIsGoing();
-		changePlayer();
+		while (isGameIsGoing == 1) {
+			manageTurn();
+			checkGameIsGoing();
+			changePlayer();
+		}
 	}
 }
