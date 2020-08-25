@@ -344,6 +344,5 @@ class TicTacToe {
 			else
 				System.out.println("Opps!! CPU Wins.");
 		}
-		
 	}
 }
